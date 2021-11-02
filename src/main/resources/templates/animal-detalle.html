@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Basic Page Info -->
+	<title>AlqoMishi</title>
+	<meta charset="utf-8">
+
+	<!-- Site favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" th:href="@{/images/favicon.png}">
+	<link rel="icon" type="image/png" sizes="32x32" th:href="@{/images/favicon.png}">
+	<link rel="icon" type="image/png" sizes="16x16" th:href="@{/images/favicon.png}">
+
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/vendors/styles/core.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/vendors/styles/icon-font.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/src/plugins/datatables/css/dataTables.bootstrap4.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/src/plugins/datatables/css/responsive.bootstrap4.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/vendors/styles/style.css}">
+	
+	<!-- switchery css -->
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/src/plugins/switchery/switchery.min.css}">
+	<!-- bootstrap-tagsinput css -->
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css}">
+	<!-- bootstrap-touchspin css -->
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css}">
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-119386393-1');
+	</script>
+</head>
+<body>
+	<!-- Header -->
+	<div th:replace="includes/header-catalogo :: myheader"></div>
+	
+	<!-- Sidebar -->
+	<div th:replace="includes/sidebar-catalogo :: sidebar-cat"></div>
+	
+	<div class="mobile-menu-overlay"></div>
+	
+	<div class="main-container">
+		<div class="pd-ltr-20 xs-pd-20-10">
+			<div class="min-height-200px">
+				<div class="page-header">
+					<div class="row">
+						<div class="col-md-12 col-sm-12">
+							<div class="title">
+								<h4 th:text="${titulo}"></h4>
+							</div>
+							<nav aria-label="breadcrumb" role="navigation">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Animal</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+				</div>
+				
+				<div class="product-wrap">
+					<div class="product-detail-wrap mb-30">
+						<div class="row">
+							<div class="col-lg-6 col-md-12 col-sm-12">
+								<div class="product-slider slider-arrow">
+									<div class="product-slide">
+										<img th:src="@{'/Catalogo/' + ${animal.imagen}}"
+										th:alt="${animal.imagen}">
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-12 col-sm-12">
+								<div class="product-detail-desc pd-20 card-box height-100-p">
+									<h4 class="mb-20 pt-20" th:text="${titulo}"></h4>
+									<div class="price">
+										<h5>Especie</h5><span th:text="${animal.especie.especie}"></span>
+									</div>
+									<textarea class="form-control" th:text="${animal.descripcion}" readonly="readonly"></textarea>
+									<br>
+									<div class="row">
+										<div class="col-md-6 col-6">
+											<a th:href="@{/registro}"  class="btn btn-primary btn-block">Adoptar</a>
+										</div>
+										<div class="col-md-6 col-6">
+											<a th:href="@{/mostrarMembresia}" class="btn btn-outline-primary btn-block">Donar Dinero</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				
+				
+				
+				
+			</div>
+			<div class="footer-wrap pd-20 mb-20 card-box">
+				AlqoMishi
+			</div>
+		</div>
+	</div>
+	<!-- js -->
+	<script th:src="@{/admin/vendors/scripts/core.js}"></script>
+	<script th:src="@{/admin/vendors/scripts/script.min.js}"></script>
+	<script th:src="@{/admin/vendors/scripts/process.js}"></script>
+	<script th:src="@{/admin/vendors/scripts/layout-settings.js}"></script>
+</body>
+</html>

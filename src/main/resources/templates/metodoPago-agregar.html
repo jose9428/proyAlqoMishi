@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="includes/head :: myhead">
+<meta charset="utf-8">
+<title>AlgoMishi</title>
+</head>
+<body>
+<!-- Header -->
+	<div th:replace="includes/header :: myheader"></div>
+	
+	<!-- Sidebar -->
+	
+	
+	
+	<div th:replace="includes/sidebar :: mysidebar"></div>
+	
+	<div class="mobile-menu-overlay"></div>
+	
+	<div class="main-container">
+		<div class="pd-ltr-20 xs-pd-20-10">
+			<div class="min-height-200px">
+				<div class="page-header">
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+							<div class="title">
+								<h4>Form</h4>
+							</div>
+							<nav aria-label="breadcrumb" role="navigation">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Metodo Pago</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+				</div>
+				<!-- Form grid Start -->
+				<div class="pd-20 card-box mb-30">
+					<div class="clearfix">
+						<div class="pull-left">
+							<h4 class="text-blue h4" th:text="${titulo}"></h4>
+						</div>
+					</div>
+				
+				<form th:action="@{/guardarPago}" th:object="${pago}" method="post">
+						<div class="row">
+						<input type="hidden" th:field="*{idpago}" class="form-control">
+							<div class="col-md-4 col-sm-12">
+								<div class="form-group">
+									<label>Nombre Metodo Pago</label>
+									<input th:field="*{nombrepago}" type="text" class="form-control">
+								</div>
+							</div>
+							<div class="col-md-12 col-sm-12">
+								<div class="form-group">
+								<button type="submit" class="btn btn-success">Guardar</button>
+								</div>
+							</div>
+						</div>
+						
+				</form>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- js -->
+	<script src="admin/vendors/scripts/core.js"></script>
+	<script src="admin/vendors/scripts/script.min.js"></script>
+	<script src="admin/vendors/scripts/process.js"></script>
+	<script src="admin/vendors/scripts/layout-settings.js"></script>
+</body>
+</html>

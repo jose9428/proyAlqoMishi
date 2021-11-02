@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="index :: head">
+<meta charset="UTF-8">
+</head>
+<body>
+<div th:replace="index :: preloader"></div>
+<div class="page"> 
+<!-- Page Header -->
+<header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar rd-navbar-modern" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="56px" data-xl-stick-up-offset="56px" data-xxl-stick-up-offset="56px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+            <div class="rd-navbar-inner-outer">
+              <div class="rd-navbar-inner">
+                <!-- RD Navbar Panel-->
+                <div class="rd-navbar-panel">
+                  <!-- RD Navbar Toggle-->
+                  <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                  <!-- RD Navbar Brand-->
+                  <div class="rd-navbar-brand"><a class="brand" th:href="@{/}"><img class="brand-logo-dark" src="images/logo_transparent-198x86.png" alt="" width="198" height="66"/></a></div>
+                </div>
+                <div class="rd-navbar-right rd-navbar-nav-wrap">
+                  <div class="rd-navbar-aside">
+                    <ul class="rd-navbar-contacts-2">
+                      <li>
+                        <div class="unit unit-spacing-xs">
+                          <div class="unit-left"><span class="icon mdi mdi-phone"></span></div>
+                          <div class="unit-body"><a class="phone" href="tel:#">+51 987 654 321</a></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="unit unit-spacing-xs">
+                          <div class="unit-left"><span class="icon mdi mdi-map-marker"></span></div>
+                          <div class="unit-body"><a class="address" href="#">Av. Universitaria 5175, Los Olivos 15304</a></div>
+                        </div>
+                      </li>
+                    </ul>
+                    <ul class="list-share-2">
+                      <li><a class="icon mdi mdi-facebook" href="#"></a></li>
+                      <li><a class="icon mdi mdi-twitter" href="#"></a></li>
+                      <li><a class="icon mdi mdi-instagram" href="#"></a></li>
+                      <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
+                    </ul>
+                  </div>
+                  <div class="rd-navbar-main">
+                    <!-- RD Navbar Nav-->
+                    <ul class="rd-navbar-nav">
+                      <li class="rd-nav-item"><a class="rd-nav-link" th:href="@{/}">Home</a>
+                      </li>
+                      <li class="rd-nav-item active"><a class="rd-nav-link" th:href="@{/nosotros}">Nosotros</a>
+                      </li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" th:href="@{/CatalogoAnimal}">Adoptar</a>
+                      </li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" th:href="@{/mostrarMembresia}">Donar</a>
+                      </li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" th:href="@{/login}">Login</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="rd-navbar-project-hamburger rd-navbar-project-hamburger-open rd-navbar-fixed-element-1" data-multitoggle=".rd-navbar-inner" data-multitoggle-blur=".rd-navbar-wrap" data-multitoggle-isolate="data-multitoggle-isolate">
+                  <div class="project-hamburger"><span class="project-hamburger-arrow"></span><span class="project-hamburger-arrow"></span><span class="project-hamburger-arrow"></span>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      
+      <!-- parallax top-->
+      <!-- Breadcrumbs -->
+      <section class="bg-gray-7">
+        <div class="breadcrumbs-custom box-transform-wrap context-dark">
+          <div class="container">
+            <h3 class="breadcrumbs-custom-title">Nosotros</h3>
+            <div class="breadcrumbs-custom-decor"></div>
+          </div>
+          <div class="box-transform" style="background-image: url(images/bg-1.jpg);"></div>
+        </div>
+        <div class="container">
+          <ul class="breadcrumbs-custom-path">
+            <li><a th:href="@{/}">Home</a></li>
+            <li class="active">Nosotros</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Icon Classic-->
+      <section class="section section-lg bg-gray-100">
+        <div class="container">
+          <div class="row row-md row-50">
+            <div class="col-sm-6 col-xl-4 wow fadeInUp" data-wow-delay="0s">
+              <article class="box-icon-classic">
+                <div class="unit unit-spacing-lg flex-column text-center flex-md-row text-md-left">
+                  <div class="unit-left">
+                    <div class="box-icon-classic-icon linearicons-map2"></div>
+                  </div>
+                  <div class="unit-body">
+                    <h5 class="box-icon-classic-title"><a href="#">Adopcion</a></h5>
+                    <p class="box-icon-classic-text">Mas de 100 perros y gatos adoptados.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-xl-4 wow fadeInUp" data-wow-delay=".1s">
+              <article class="box-icon-classic">
+                <div class="unit unit-spacing-lg flex-column text-center flex-md-row text-md-left">
+                  <div class="unit-left">
+                    <div class="box-icon-classic-icon linearicons-radar"></div>
+                  </div>
+                  <div class="unit-body">
+                    <h5 class="box-icon-classic-title"><a href="#">Esterilizacion</a></h5>
+                    <p class="box-icon-classic-text">Más de 100 perros y gatos esterilizados.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-xl-4 wow fadeInUp" data-wow-delay=".2s">
+              <article class="box-icon-classic">
+                <div class="unit unit-spacing-lg flex-column text-center flex-md-row text-md-left">
+                  <div class="unit-left">
+                    <div class="box-icon-classic-icon linearicons-thumbs-up"></div>
+                  </div>
+                  <div class="unit-body">
+                    <h5 class="box-icon-classic-title"><a href="#">Alimentación</a></h5>
+                    <p class="box-icon-classic-text"> Más de 500 TN de comida entregadas.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our clients-->
+      <section class="section section-lg bg-default text-md-left">
+        <div class="container">
+          <div class="row row-60 justify-content-center flex-lg-row-reverse">
+            <div class="col-md-8 col-lg-6 col-xl-5">
+              <div class="offset-left-xl-70">
+                <h3 class="heading-3">Opiniones</h3>
+                <div class="slick-quote">
+                  <!-- Slick Carousel-->
+                  <div class="slick-slider carousel-parent" data-autoplay="true" data-swipe="true" data-items="1" data-child="#child-carousel-5" data-for="#child-carousel-5" data-slide-effect="true">
+                    <div class="item">
+                      <!-- Quote Modern-->
+                      <article class="quote-modern">
+                        <h5 class="quote-modern-text"><span class="q">Según el Ministerio de Salud, adoptar una mascota no solo contribuye con el bienestar físico, emocional y mental del animal, sino también de quien decide adoptarlo.</span></h5>
+                        <h5 class="quote-modern-author">MINSA</h5>
+                        <p class="quote-modern-status">Ministerio de Salud</p>
+                      </article>
+                    </div>
+                    <div class="item">
+                      <!-- Quote Modern-->
+                      <article class="quote-modern">
+                        <h5 class="quote-modern-text"><span class="q"> A través del afecto, juegos, caricias y cuidado de los animales que adopta una familia, los niños desarrollan la capacidad de expresar mejor sus emociones en su interacción con el entorno. También se genera en ellos un mayor sentido de responsabilidad.</span></h5>
+                        <h5 class="quote-modern-author">MINSA</h5>
+                        <p class="quote-modern-status">Ministerio de Salud</p>
+                      </article>
+                    </div>
+                    <div class="item">
+                      <!-- Quote Modern-->
+                      <article class="quote-modern">
+                        <h5 class="quote-modern-text"><span class="q">Los seres humanos y los animales desarrollan vínculos muy fuertes, y en el caso de aquellos rescatados de la calle, estos se muestran agradecidos y protectores.</span></h5>
+                        <h5 class="quote-modern-author">Yuri Cutipé,</h5>
+                        <p class="quote-modern-status">Ministerio de Salud</p>
+                      </article>
+                    </div>
+                    <div class="item">
+                      <!-- Quote Modern-->
+                      <article class="quote-modern">
+                        <h5 class="quote-modern-text"><span class="q">Los animales suelen ayudar en casos de autismo, depresión, hiperactividad, retardo mental, problemas emocionales, entre otros y con resultados muy favorables.</span></h5>
+                        <h5 class="quote-modern-author">MINSA,</h5>
+                        <p class="quote-modern-status">Ministerio de Salud</p>
+                      </article>
+                    </div>
+                  </div>
+                  <div class="slick-slider child-carousel" id="child-carousel-5" data-arrows="true" data-for=".carousel-parent" data-items="4" data-sm-items="4" data-md-items="4" data-lg-items="4" data-xl-items="4" data-slide-to-scroll="1">
+                    <div class="item"><img class="img-circle" src="images/minsa.png" alt="" width="83" height="83"/>
+                    </div>
+                    <div class="item"><img class="img-circle" src="images/minsa.png" alt="" width="83" height="83"/>
+                    </div>
+                    <div class="item"><img class="img-circle" src="images/minsa.png" alt="" width="83" height="83"/>
+                    </div>
+                    <div class="item"><img class="img-circle" src="images/minsa.png" alt="" width="83" height="83"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-xl-7"><img src="images/opinion.jpg" alt="" width="669" height="447"/>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div th:replace="index :: footer"></div>
+</div>
+<!-- Global Mailform Output-->
+<div class="snackbars" id="form-output-global"></div>
+<!-- Javascript-->
+<script th:src="@{js/core.min.js}"></script>
+<script th:src="@{js/script.js}"></script>
+<!-- coded by Himic-->
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Basic Page Info -->
+	<title>AlqoMishi</title>
+	<meta charset="utf-8">
+
+	<!-- Site favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" th:href="@{/images/favicon.png}">
+	<link rel="icon" type="image/png" sizes="32x32" th:href="@{/images/favicon.png}">
+	<link rel="icon" type="image/png" sizes="16x16" th:href="@{/images/favicon.png}">
+
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/vendors/styles/core.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/vendors/styles/icon-font.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/src/plugins/datatables/css/dataTables.bootstrap4.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/src/plugins/datatables/css/responsive.bootstrap4.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/vendors/styles/style.css}">
+	
+	<!-- switchery css -->
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/src/plugins/switchery/switchery.min.css}">
+	<!-- bootstrap-tagsinput css -->
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css}">
+	<!-- bootstrap-touchspin css -->
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css}">
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-119386393-1');
+	</script>
+</head>
+<body>
+<!-- Header -->
+	<div th:replace="includes/header :: myheader"></div>
+	
+	<!-- Sidebar -->
+	
+	
+	
+	<div th:replace="includes/sidebar :: mysidebar"></div>
+	
+	<div class="mobile-menu-overlay"></div>
+	
+	<div class="main-container">
+		<div class="pd-ltr-20 xs-pd-20-10">
+			<div class="min-height-200px">
+				<div class="page-header">
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+							<div class="title">
+								<h4>Form</h4>
+							</div>
+							<nav aria-label="breadcrumb" role="navigation">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a th:href="@{/dashboard}">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Membresia</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+				</div>
+				<!-- Form grid Start -->
+				<div class="pd-20 card-box mb-30">
+					<div class="clearfix">
+						<div class="pull-left">
+							<h4 class="text-blue h4" th:text="${titulo}"></h4>
+						</div>
+					</div>
+				
+					<form th:action="@{/guardarMembresia}" th:object="${membresia}" method="post" enctype="multipart/form-data">
+					
+						<div class="row">
+						<input type="hidden" th:field="*{idmembresia}" class="form-control">
+							<div class="col-md-6 col-sm-12">
+								<div class="form-group">
+									<label>Nombre Membresia</label>
+									<input th:field="*{nombrememb}" type="text" class="form-control">
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-12">
+								<div class="form-group">
+								<label>Imagen</label>
+								<input type="file" name="file" class="form-control-file form-control height-auto" id="imgmemb" required="required">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 col-sm-12">
+								<div class="form-group">
+									<label>Tipo Membresia</label>
+									<input th:field="*{tipomemb}" type="text" class="form-control">
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-12">
+								<div class="form-group">
+									<label>Monto Membresia</label>
+									<input th:field="*{montomemb}" id="demo2" type="number" step="any"value="0" name="demo2" class="form-control">
+								</div>
+							</div>
+							
+						</div>
+						<div class="row">
+							<div class="col-md-12 col-sm-12">
+								<div class="form-group">
+									<label>Descripcion</label>
+									<textarea type="text" th:field="*{descripcionmemb}" class="form-control" required="required"></textarea>								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-12 col-sm-12">
+								<div class="form-group">
+								<button type="submit" class="btn btn-success">Guardar</button>
+								</div>
+							</div>
+						</div>
+				</form>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- js -->
+	<script th:src="@{/admin/vendors/scripts/core.js}"></script>
+	<script th:src="@{/admin/vendors/scripts/script.min.js}"></script>
+	<script th:src="@{/admin/vendors/scripts/process.js}"></script>
+	<script th:src="@{/admin/vendors/scripts/layout-settings.js}"></script>
+	<!-- switchery js -->
+	<script th:src="@{/admin/src/plugins/switchery/switchery.min.js}"></script>
+	<!-- bootstrap-tagsinput js -->
+	<script th:src="@{/admin/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js}"></script>
+	<!-- bootstrap-touchspin js -->
+	<script th:src="@{/admin/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js}"></script>
+	<script th:src="@{/admin/vendors/scripts/advanced-components.js}"></script>
+</body>
+</html>

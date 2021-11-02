@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Basic Page Info -->
+	<title>AlqoMishi</title>
+	<meta charset="utf-8">
+
+	<!-- Site favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" th:href="@{/images/favicon.png}">
+	<link rel="icon" type="image/png" sizes="32x32" th:href="@{/images/favicon.png}">
+	<link rel="icon" type="image/png" sizes="16x16" th:href="@{/images/favicon.png}">
+
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/vendors/styles/core.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/vendors/styles/icon-font.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/src/plugins/datatables/css/dataTables.bootstrap4.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/src/plugins/datatables/css/responsive.bootstrap4.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/vendors/styles/style.css}">
+	
+	<!-- switchery css -->
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/src/plugins/switchery/switchery.min.css}">
+	<!-- bootstrap-tagsinput css -->
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css}">
+	<!-- bootstrap-touchspin css -->
+	<link rel="stylesheet" type="text/css" th:href="@{/admin/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css}">
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-119386393-1');
+	</script>
+</head>
+<body>
+	
+	<!-- Header -->
+	<div th:replace="includes/header :: myheader"></div>
+	
+	<!-- Sidebar -->
+	
+	<div th:replace="includes/sidebar :: mysidebar"></div>
+	
+	<div class="mobile-menu-overlay"></div>
+	<div class="main-container">
+		<div class="pd-ltr-20 xs-pd-20-10">
+			<div class="min-height-200px">
+				<div class="page-header">
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+							<div class="title">
+								<h4>Form</h4>
+							</div>
+							<nav aria-label="breadcrumb" role="navigation">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Animal</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+				</div>
+				<!-- Form grid Start -->
+				<div class="pd-20 card-box mb-30">
+					<div class="clearfix">
+						<div class="pull-left">
+							<h4 class="text-blue h4" th:text="${titulo}"></h4>
+						</div>
+					</div>
+				
+				<form th:Action="@{/guardarAnimal}" th:object="${animal}" method="post" autocomplete="off" enctype="multipart/form-data">
+						<div class="row">
+							<input type="hidden" th:field="*{idanimal}" class="form-control">
+								
+							<div class="col-md-4 col-sm-12">
+								<div class="form-group">
+									<label>Nombre</label>
+									<input type="text" th:field="*{nombre}" class="form-control" required="required">
+									<small class="form-control-feedback has-danger" th:if="${#fields.hasErrors('nombre')}" th:errors=*{nombre}></small>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-12">
+								<div class="form-group">
+									<label>Especie Animal</label>
+									<select th:field="*{especie}" class="custom-select2 form-control" name="state" style="width: 100%;">
+										<optgroup label="Seleccionar Especie">
+											<option th:each="especie:${especies}" 
+													th:value="${especie.idespecie}" 
+													th:text="${especie.especie}"></option>
+										</optgroup>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-12">
+								<div class="form-group">
+									<label>Estado</label>
+									<input type="text" th:field="*{estado}" class="form-control" required="required">
+									<small class="form-control-feedback has-danger" th:if="${#fields.hasErrors('estado')}" th:errors=*{estado}></small>
+								</div>
+							</div>
+							
+						</div>
+						<div class="row">
+							<div class="col-md-12 col-sm-12">
+								<div class="form-group">
+									<label>Descripcion</label>
+									<textarea type="text" th:field="*{descripcion}" class="form-control" required="required"></textarea>
+									<small class="form-control-feedback has-danger" th:if="${#fields.hasErrors('descripcion')}" th:errors=*{descripcion}></small>
+								</div>
+							</div>
+							<div class="col-md-12 col-sm-12">
+								<div class="form-group">
+								<label>Imagen</label>
+								<input type="file" name="file" class="form-control-file form-control height-auto" id="imagen" required="required">
+								</div>
+							</div>
+							<div class="col-md-12 col-sm-12">
+								<div class="form-group">
+								<button type="submit" class="btn btn-lg btn-primary">Guardar</button>
+								</div>
+							</div>
+						</div>
+				</form>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- js -->
+	<script th:src="@{/admin/vendors/scripts/core.js}"></script>
+	<script th:src="@{/admin/vendors/scripts/script.min.js}"></script>
+	<script th:src="@{/admin/vendors/scripts/process.js}"></script>
+	<script th:src="@{/admin/vendors/scripts/layout-settings.js}"></script>
+</body>
+</html>
